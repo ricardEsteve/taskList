@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  opacity: .5;
+  background: url(bgdos.jpg);
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.wrap {
+  margin: auto;
+  max-width: 800px;
+  width: 90%;
+}
+
+.main {
+  
+  border-top: 20px solid white;
+  color: white;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.main .form {
+  
+  text-align: center;
+}
+
+.main .form input[type=text] {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.main .form input[type=text].error {
+  border: 3px solid red;
+  color: black;
+}
+
+.main form .button {
+  background: none;
+  border-radius: 2px solid white;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  padding: 15px;
+}
+
+.main .form .button:hover {
+  border-radius: 15px;
+}
+
+.tasks .list{
+  list-style: none;
+}
+
+.tasks .list li {
+  border-bottom: 1px solid white;
+}
+
+.tasks .list li a {
+  color: white;
+  display: block;
+  padding: 20px 0;
+  text-decoration: none;
+}
+
+.tasks .list li a:hover {
+  text-decoration: line-through;
+}
