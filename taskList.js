@@ -26,25 +26,25 @@ $(function () {
     var link = document.createElement("a");
     var content = document.createTextNode(task);
 
-//    firebase.auth().onAuthStateChanged(function (user) {
-//      if (user != null) {
-//        $("#e-mail").val("");
-//        $("#password").val("");
-//        $("#panelSignIn").hide();
-//        $("#logOutButton").show();
-//
-//      } else {
-//        $("#panelSignIn").show();
-//        $("#logOutButton").hide();
-//      }
-//    });
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user != null) {
+        $("#e-mail").val("");
+        $("#password").val("");
+        $("#panelSignIn").hide();
+        $("#logOutButton").show();
 
-//    $loginButton.on('click', function () {
-//      var $email = $("#e-mail");
-//      var $password = $("#password");
-//
-//      firebase.auth().signInWithEmailAndPassword($email.val(), $password.val());
-//    });
+      } else {
+        $("#panelSignIn").show();
+        $("#logOutButton").hide();
+      }
+    });
+
+    $loginButton.on('click', function () {
+      var $email = $("#e-mail");
+      var $password = $("#password");
+
+      firebase.auth().signInWithEmailAndPassword($email.val(), $password.val());
+    });
 
 
     $logOutButton.on('click', function () {
@@ -97,10 +97,10 @@ $(function () {
     updates['/posts/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
 
-    function getCurrentUserUid() {
-      return firebase.auth().currentUser.uid;
-
-    }
+//    function getCurrentUserUid() {
+//      return firebase.auth().currentUser.uid;
+//
+//    }
 
 
     for (var i = 0; i <= list.children.length - 1; i++) {
