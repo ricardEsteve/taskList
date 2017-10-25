@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Task List</title>
-  <link rel="apple-touch-icon" href="app_icon60.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="app_icon76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="app_icon120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="app_icon152.png">
-  <link rel="shortcut icon" sizes="196x196" href="images/nysl_logo.png">
+  <link rel="apple-touch-icon" href="toDo.jpg">
+  <link rel="shortcut icon" sizes="196x196" href="toDo.jpg">
   <link rel="apple-touch-startup-image" href="toDo.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,16 +14,46 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" integrity="sha256-fmMNkMcjSw3xcp9iuPnku/ryk9kaWgrEbfJfKmdZ45o=" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+<!--
+    <div class="panel-group" id="panelSignIn">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="title">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapse1">SIGN IN</a>
+            </h4>
+          </div>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="signIn">
+            <div class="bodyContent">
+              <div class="data">
+
+                <label for="e-mail"> e-mail</label>
+                <input type="text" name="user's email" id="e-mail">
+                <label for="password">password</label>
+                <input type="password" name="user's password" id="password">
+                <button type="button" id="loginButton">LOG IN AND JOIN US</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
+ 
   <div class="main">
     <div class="wrap">
       <form class="form" action="">
         <input type="text" id="taskInput" class="error" placeholder="add your task">
-        <input type="button" class="button" id="addButton" value="Add This Task">
+        <input type="button" class="button" id="addButton" value="ADD THIS TASK">
       </form>
     </div>
   </div>
@@ -35,9 +63,29 @@
         <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
         <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
         <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
-      </ul>     
-    </div>    
+      </ul>
+    </div>
   </div>
+
+  <div class="logout">
+    <button type="button" id="logOutButton">LOG OUT (SEE YOU SOON!)</button>
+  </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script>
+
+    var config = {
+      apiKey: "AIzaSyCgSmCG1OaNSL9pDGQF4nr8CqWk1Yq7Fro",
+      authDomain: "tasklist-93613.firebaseapp.com",
+      databaseURL: "https://tasklist-93613.firebaseio.com",
+      projectId: "tasklist-93613",
+      storageBucket: "",
+      messagingSenderId: "811615109413"
+    };
+    firebase.initializeApp(config);
+
+  </script>
   <script src="taskList.js"></script>
 
 </body>
