@@ -5,18 +5,21 @@ $(function () {
   var list = document.getElementById("list");
   var taskInput = document.getElementById("taskInput");
   var btnNewTask = document.getElementById("addButton");
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/plus.login');
-  firebase.auth().signInWithRedirect(provider);
-  
+  //  var provider = new firebase.auth.GoogleAuthProvider();
+  //  provider.addScope('https://www.googleapis.com/auth/plus.login');
+  //  firebase.auth().signInWithRedirect(provider);
+
 
 
   document.getElementById("addButton").addEventListener("click", addThisTask);
 
-  function addThisTask(uid, body) {
-
+  function addThisTask() {
+    
+    var user=firebase.auth().currentUser.email;
+    var body= taskInput.value;
+    
     var postData = {
-      uid: uid,
+      user: user,
       body: body,
     };
 
@@ -26,10 +29,19 @@ $(function () {
     var link = document.createElement("a");
     var content = document.createTextNode(task);
 
+
+    function signIn() {
+      firebase.auth().signInWithEmailAndPassword($("#e-mail").val(), $("#password").val()).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+    }
+
     firebase.auth().onAuthStateChanged(function (user) {
       if (user != null) {
-        $("#e-mail").val("");
-        $("#password").val("");
+        $("#e-mail").val();
+        $("#password").val();
         $("#panelSignIn").hide();
         $("#logOutButton").show();
 
@@ -43,7 +55,11 @@ $(function () {
       var $email = $("#e-mail");
       var $password = $("#password");
 
-      firebase.auth().signInWithEmailAndPassword($email.val(), $password.val());
+      firebase.auth().signInWithEmailAndPassword($("#e-mail").val(), $("#password").val()).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
     });
 
 
@@ -86,21 +102,21 @@ $(function () {
       list.children[i].addEventListener("click", function () {
 
         this.parentNode.removeChild(this);
-      });
+      })
 
     }
-    
-    getCurrentUserUid();
+
+    getCurrentUser();
 
     var newPostKey = firebase.database().ref().child('posts').push().key;
     var updates = {};
     updates['/posts/' + newPostKey] = postData;
-    return firebase.database().ref().update(updates);
+    firebase.database().ref().update(updates);
 
-//    function getCurrentUserUid() {
-//      return firebase.auth().currentUser.uid;
-//
-//    }
+    function getCurrentUser() {
+      return firebase.auth().getCurrentUser;
+
+    }
 
 
     for (var i = 0; i <= list.children.length - 1; i++) {
@@ -111,7 +127,7 @@ $(function () {
 
 });
 
-    
+
 
 
 
