@@ -125,3 +125,7 @@ body {
 #logOutButton:hover {
   border-radius: 15px;
 }
+
+.everyTask{
+  background: white;
+}

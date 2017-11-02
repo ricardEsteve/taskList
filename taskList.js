@@ -38,24 +38,25 @@ $(function () {
 
 function getFirebase(snapshot) {
   var data = snapshot.val();
-  console.log(data);
-  var output = "";
-  $.each(data, function (key) {
-    output += Mustache.render($("#commentTemplate").html(), data[key]);
+  
+  $(".list").empty();
+  
+  for(key in data){
+    console.log(data[key]);
+    $(".list").append($("<li/>").addClass("everyTask").attr("id", key).text("X " + data[key].body));
+  }
+  $(".everyTask").on("click", function () {
+    var key= $(this).attr("id");
+    deleteTask(key);
   });
-  $("#content").html(output);
+ 
 }
 
-$('.delete').on('click', function () {
-				deletePost(this.id);
-			});
-function deletePost(body) {
-		var arrayKeys = body.split('+');
-		var id = arrayKeys[0];
-		var key = arrayKeys[1];
-		firebase.database().ref(id).child(key).remove();
-		getPosts(id);
-	}
+
+//$('.delete').on('click', function () {
+//  deletenewTask(this.id);
+//});
+
 
 
 function addThisTask() {
@@ -70,7 +71,7 @@ function addThisTask() {
     taskInput.className = "error";
     return;
   }
-  
+
   findTheUserId(body);
 
 }
@@ -86,7 +87,9 @@ function findTheUserId(body) {
   newTask.addEventListener("click", function () {
     this.parentNode.removeChild(this);
   });
-  newTask.addEventListener("click", deleteTask);
+  newTask.addEventListener("click", function(){
+    deleteTask(key);
+  });
 
   firebase.database().ref("ddbb").push({
     "user": firebase.auth().currentUser.email,
@@ -96,9 +99,16 @@ function findTheUserId(body) {
 
 }
 
-function deleteTask() {
-  firebase.database().ref("ddbb").remove();
+function deleteTask(key) {
+ 
+  
+  
+  firebase.database().ref("ddbb").child(key).remove();
+  getFirebase();
+
 }
+
+
 
 
 function signIn() {
@@ -113,12 +123,8 @@ function clearError() {
   taskInput.setAttribute("placeholder", "add your task");
 }
 
-//function deleteTask() {
-//  this.parentNode.removeChild(this);
-//}
 
 function LogOut() {
   console.log("Logging out");
   firebase.auth().signOut();
 }
-
