@@ -5,7 +5,7 @@
 }
 
 body {
-/*  opacity: .5;*/
+  /*  opacity: .5;*/
   background: url(board.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -16,13 +16,20 @@ body {
   font-size: bold;
 }
 
-#panelSignIn{
-    background: grey;
-  opacity: .7;
-
+#content {
+  background: white;
+  font-family: 'Shadows Into Light', cursive;
+  opacity: .5;
 }
 
-.title{
+#panelSignIn {
+  font-family: 'Shadows Into Light', cursive;
+  background: grey;
+  opacity: .7;
+}
+
+.title {
+  font-family: 'Shadows Into Light', cursive;
   background: grey;
   opacity: .7;
   text-align: center;
@@ -34,7 +41,6 @@ body {
   margin: auto;
   padding-bottom: 10px;
   padding-top: 10px;
-
 }
 
 .wrap {
@@ -44,6 +50,7 @@ body {
 }
 
 .main {
+  font-family: 'Shadows Into Light', cursive;
   border-top: 20px solid black;
   color: black;
   padding: 50px 0;
@@ -75,12 +82,12 @@ body {
   padding: 15px;
 }
 
-
 .main .form .button:hover {
   border-radius: 15px;
 }
 
 .tasks .list {
+  font-family: 'Shadows Into Light', cursive;
   list-style: none;
 }
 
@@ -99,7 +106,9 @@ body {
   text-decoration: line-through;
 }
 
-#logOutButton, #loginButton {
+#logOutButton,
+#loginButton {
+  font-family: 'Shadows Into Light', cursive;
   background: grey;
   opacity: .7;
   border-radius: 2px solid white;
