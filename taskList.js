@@ -43,7 +43,7 @@ function getFirebase(snapshot) {
   
   for(key in data){
     console.log(data[key]);
-    $(".list").append($("<li/>").addClass("everyTask").attr("id", key).text("X " + data[key].body));
+    $(".list").append($("<li/>").addClass("everyTask").attr("id", key).text(data[key].body));
   }
   $(".everyTask").on("click", function () {
     var key= $(this).attr("id");

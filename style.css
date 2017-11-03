@@ -26,6 +26,7 @@ body {
   font-family: 'Shadows Into Light', cursive;
   background: grey;
   opacity: .7;
+  border-radius: 15px;
 }
 
 .title {
@@ -33,7 +34,7 @@ body {
   background: grey;
   opacity: .7;
   text-align: center;
-  border-radius: 2px solid black;
+  /*  border-radius: 2px solid black;*/
   color: white;
   font-size: 16px;
   padding: 15px;
@@ -41,6 +42,13 @@ body {
   margin: auto;
   padding-bottom: 10px;
   padding-top: 10px;
+  border-radius: 15px;
+}
+
+.data {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrap {
@@ -65,11 +73,13 @@ body {
   margin-bottom: 20px;
   padding: 10px;
   width: 100%;
+  border-radius: 15px;
 }
 
 .main .form input[type=text].error {
   border: 3px solid red;
   color: black;
+  border-radius: 15px;
 }
 
 .main .form .button {
@@ -80,11 +90,16 @@ body {
   display: inline-block;
   font-size: 16px;
   padding: 15px;
-}
-
-.main .form .button:hover {
   border-radius: 15px;
 }
+
+
+/*
+.main .form .button:hover {
+
+  
+}
+*/
 
 .tasks .list {
   font-family: 'Shadows Into Light', cursive;
@@ -93,6 +108,9 @@ body {
 
 .tasks .list li {
   border-bottom: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
 .tasks .list li a {
@@ -102,16 +120,18 @@ body {
   text-decoration: none;
 }
 
+
+/*
 .tasks .list li a:hover {
   text-decoration: line-through;
 }
+*/
 
 #logOutButton,
 #loginButton {
   font-family: 'Shadows Into Light', cursive;
   background: grey;
   opacity: .7;
-  border-radius: 2px solid white;
   color: white;
   font-size: 16px;
   padding: 15px;
@@ -120,12 +140,18 @@ body {
   margin: auto;
   padding-bottom: 10px;
   padding-top: 10px;
-}
-
-#logOutButton:hover {
   border-radius: 15px;
 }
 
-.everyTask{
+
+/*
+#logOutButton:hover {
+  
+}
+*/
+
+li {}
+
+.everyTask {
   background: white;
 }
